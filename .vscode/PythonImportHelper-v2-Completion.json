@@ -1,0 +1,107 @@
+[
+    {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
+        "documentation": {}
+    },
+    {
+        "label": "SparkSession",
+        "importPath": "pyspark.sql",
+        "description": "pyspark.sql",
+        "isExtraImport": true,
+        "detail": "pyspark.sql",
+        "documentation": {}
+    },
+    {
+        "label": "explode",
+        "importPath": "pyspark.sql.functions",
+        "description": "pyspark.sql.functions",
+        "isExtraImport": true,
+        "detail": "pyspark.sql.functions",
+        "documentation": {}
+    },
+    {
+        "label": "col",
+        "importPath": "pyspark.sql.functions",
+        "description": "pyspark.sql.functions",
+        "isExtraImport": true,
+        "detail": "pyspark.sql.functions",
+        "documentation": {}
+    },
+    {
+        "label": "requests",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "requests",
+        "description": "requests",
+        "detail": "requests",
+        "documentation": {}
+    },
+    {
+        "label": "parse_json",
+        "kind": 2,
+        "importPath": "an",
+        "description": "an",
+        "peekOfCode": "def parse_json(line):\n    try:\n        return json.loads(line)\n    except json.JSONDecodeError:\n        return None\n# Convert JSON strings to Python dictionaries, filtering out any that failed to parse\nparsed_rdd = rdd.map(parse_json).filter(lambda x: x is not None)\n# Step 4: Convert the parsed RDD to a DataFrame\ndf = spark.createDataFrame(parsed_rdd)\n# Verify the schema to understand the structure (Optional)",
+        "detail": "an",
+        "documentation": {}
+    },
+    {
+        "label": "spark",
+        "kind": 5,
+        "importPath": "an",
+        "description": "an",
+        "peekOfCode": "spark = SparkSession.builder \\\n    .appName(\"NewsAnalysis\") \\\n    .getOrCreate()\n# Step 2: Read the text file containing JSON data\n# Replace 'news_data.txt' with the actual path to your text file\nrdd = spark.sparkContext.textFile(\"news_data.txt\")\n# Step 3: Parse each line as JSON using Python's json library\ndef parse_json(line):\n    try:\n        return json.loads(line)",
+        "detail": "an",
+        "documentation": {}
+    },
+    {
+        "label": "rdd",
+        "kind": 5,
+        "importPath": "an",
+        "description": "an",
+        "peekOfCode": "rdd = spark.sparkContext.textFile(\"news_data.txt\")\n# Step 3: Parse each line as JSON using Python's json library\ndef parse_json(line):\n    try:\n        return json.loads(line)\n    except json.JSONDecodeError:\n        return None\n# Convert JSON strings to Python dictionaries, filtering out any that failed to parse\nparsed_rdd = rdd.map(parse_json).filter(lambda x: x is not None)\n# Step 4: Convert the parsed RDD to a DataFrame",
+        "detail": "an",
+        "documentation": {}
+    },
+    {
+        "label": "parsed_rdd",
+        "kind": 5,
+        "importPath": "an",
+        "description": "an",
+        "peekOfCode": "parsed_rdd = rdd.map(parse_json).filter(lambda x: x is not None)\n# Step 4: Convert the parsed RDD to a DataFrame\ndf = spark.createDataFrame(parsed_rdd)\n# Verify the schema to understand the structure (Optional)\ndf.printSchema()\n# Step 5: Extract and explode the 'articles' field if it exists\nif 'articles' in df.columns:\n    articles_df = df.select(explode(col(\"articles\")).alias(\"article\"))\n    # Step 6: Flatten the structure and select relevant fields\n    flattened_df = articles_df.select(",
+        "detail": "an",
+        "documentation": {}
+    },
+    {
+        "label": "df",
+        "kind": 5,
+        "importPath": "an",
+        "description": "an",
+        "peekOfCode": "df = spark.createDataFrame(parsed_rdd)\n# Verify the schema to understand the structure (Optional)\ndf.printSchema()\n# Step 5: Extract and explode the 'articles' field if it exists\nif 'articles' in df.columns:\n    articles_df = df.select(explode(col(\"articles\")).alias(\"article\"))\n    # Step 6: Flatten the structure and select relevant fields\n    flattened_df = articles_df.select(\n        \"article.source.name\",\n        \"article.author\",",
+        "detail": "an",
+        "documentation": {}
+    },
+    {
+        "label": "fetch_news_api",
+        "kind": 2,
+        "importPath": "fetch_news",
+        "description": "fetch_news",
+        "peekOfCode": "def fetch_news_api():\n    ####### Settings ---> Change Variable ######\n    search_keyword = 'apple stock'\n    start_date = \"2024-10-21\"\n    end_date = \"2024-10-22\" \n    sort_method = 'popularity'\n    api_key = \"fcf6368111ce48c3b234b0a479d1dca6\"\n    # url definition\n    url = (\n        \"https://newsapi.org/v2/everything?\"",
+        "detail": "fetch_news",
+        "documentation": {}
+    },
+    {
+        "label": "fetch_news_about_apple",
+        "kind": 2,
+        "importPath": "news_text",
+        "description": "news_text",
+        "peekOfCode": "def fetch_news_about_apple():\n    ####### Settings ---> Change Variable ######\n    search_keyword = 'apple stock'\n    start_date = \"2024-10-21\"\n    end_date = \"2024-10-22\" \n    sort_method = 'popularity'\n    api_key = \"fcf6368111ce48c3b234b0a479d1dca6\"\n    # url definition\n    url = (\n        \"https://newsapi.org/v2/everything?\"",
+        "detail": "news_text",
+        "documentation": {}
+    }
+]

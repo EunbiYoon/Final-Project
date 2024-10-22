@@ -23,9 +23,9 @@ def fetch_news_about_apple():
     if response.status_code == 200:
         data = response.json()
         # Save the JSON data to a file
-        with open('news_data.txt', 'w') as f:
+        with open('news_data.json', 'w') as f:
             json.dump(data, f, indent=4)
-        print("Data saved to 'news_data.txt'")
+        print("Data saved to 'news_data.json'")
     else:
         print(f"Failed to fetch data: {response.status_code} - {response.text}")
 

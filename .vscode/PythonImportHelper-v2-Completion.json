@@ -1,11 +1,28 @@
 [
     {
+        "label": "requests",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "requests",
+        "description": "requests",
+        "detail": "requests",
+        "documentation": {}
+    },
+    {
         "label": "json",
         "kind": 6,
         "isExtraImport": true,
         "importPath": "json",
         "description": "json",
         "detail": "json",
+        "documentation": {}
+    },
+    {
+        "label": "SparkSession",
+        "importPath": "pyspark.sql",
+        "description": "pyspark.sql",
+        "isExtraImport": true,
+        "detail": "pyspark.sql",
         "documentation": {}
     },
     {
@@ -25,6 +42,14 @@
         "documentation": {}
     },
     {
+        "label": "split",
+        "importPath": "pyspark.sql.functions",
+        "description": "pyspark.sql.functions",
+        "isExtraImport": true,
+        "detail": "pyspark.sql.functions",
+        "documentation": {}
+    },
+    {
         "label": "col",
         "importPath": "pyspark.sql.functions",
         "description": "pyspark.sql.functions",
@@ -33,57 +58,67 @@
         "documentation": {}
     },
     {
-        "label": "requests",
-        "kind": 6,
+        "label": "lower",
+        "importPath": "pyspark.sql.functions",
+        "description": "pyspark.sql.functions",
         "isExtraImport": true,
-        "importPath": "requests",
-        "description": "requests",
-        "detail": "requests",
+        "detail": "pyspark.sql.functions",
         "documentation": {}
     },
     {
-        "label": "parse_json",
-        "kind": 2,
-        "importPath": "an",
-        "description": "an",
-        "peekOfCode": "def parse_json(line):\n    try:\n        return json.loads(line)\n    except json.JSONDecodeError:\n        return None\n# Convert JSON strings to Python dictionaries, filtering out any that failed to parse\nparsed_rdd = rdd.map(parse_json).filter(lambda x: x is not None)\n# Step 4: Convert the parsed RDD to a DataFrame\ndf = spark.createDataFrame(parsed_rdd)\n# Verify the schema to understand the structure (Optional)",
-        "detail": "an",
+        "label": "trim",
+        "importPath": "pyspark.sql.functions",
+        "description": "pyspark.sql.functions",
+        "isExtraImport": true,
+        "detail": "pyspark.sql.functions",
         "documentation": {}
     },
     {
-        "label": "spark",
-        "kind": 5,
-        "importPath": "an",
-        "description": "an",
-        "peekOfCode": "spark = SparkSession.builder \\\n    .appName(\"NewsAnalysis\") \\\n    .getOrCreate()\n# Step 2: Read the text file containing JSON data\n# Replace 'news_data.txt' with the actual path to your text file\nrdd = spark.sparkContext.textFile(\"news_data.txt\")\n# Step 3: Parse each line as JSON using Python's json library\ndef parse_json(line):\n    try:\n        return json.loads(line)",
-        "detail": "an",
+        "label": "explode",
+        "importPath": "pyspark.sql.functions",
+        "description": "pyspark.sql.functions",
+        "isExtraImport": true,
+        "detail": "pyspark.sql.functions",
         "documentation": {}
     },
     {
-        "label": "rdd",
-        "kind": 5,
-        "importPath": "an",
-        "description": "an",
-        "peekOfCode": "rdd = spark.sparkContext.textFile(\"news_data.txt\")\n# Step 3: Parse each line as JSON using Python's json library\ndef parse_json(line):\n    try:\n        return json.loads(line)\n    except json.JSONDecodeError:\n        return None\n# Convert JSON strings to Python dictionaries, filtering out any that failed to parse\nparsed_rdd = rdd.map(parse_json).filter(lambda x: x is not None)\n# Step 4: Convert the parsed RDD to a DataFrame",
-        "detail": "an",
+        "label": "split",
+        "importPath": "pyspark.sql.functions",
+        "description": "pyspark.sql.functions",
+        "isExtraImport": true,
+        "detail": "pyspark.sql.functions",
         "documentation": {}
     },
     {
-        "label": "parsed_rdd",
-        "kind": 5,
-        "importPath": "an",
-        "description": "an",
-        "peekOfCode": "parsed_rdd = rdd.map(parse_json).filter(lambda x: x is not None)\n# Step 4: Convert the parsed RDD to a DataFrame\ndf = spark.createDataFrame(parsed_rdd)\n# Verify the schema to understand the structure (Optional)\ndf.printSchema()\n# Step 5: Extract and explode the 'articles' field if it exists\nif 'articles' in df.columns:\n    articles_df = df.select(explode(col(\"articles\")).alias(\"article\"))\n    # Step 6: Flatten the structure and select relevant fields\n    flattened_df = articles_df.select(",
-        "detail": "an",
+        "label": "regexp_replace",
+        "importPath": "pyspark.sql.functions",
+        "description": "pyspark.sql.functions",
+        "isExtraImport": true,
+        "detail": "pyspark.sql.functions",
         "documentation": {}
     },
     {
-        "label": "df",
-        "kind": 5,
-        "importPath": "an",
-        "description": "an",
-        "peekOfCode": "df = spark.createDataFrame(parsed_rdd)\n# Verify the schema to understand the structure (Optional)\ndf.printSchema()\n# Step 5: Extract and explode the 'articles' field if it exists\nif 'articles' in df.columns:\n    articles_df = df.select(explode(col(\"articles\")).alias(\"article\"))\n    # Step 6: Flatten the structure and select relevant fields\n    flattened_df = articles_df.select(\n        \"article.source.name\",\n        \"article.author\",",
-        "detail": "an",
+        "label": "col",
+        "importPath": "pyspark.sql.functions",
+        "description": "pyspark.sql.functions",
+        "isExtraImport": true,
+        "detail": "pyspark.sql.functions",
+        "documentation": {}
+    },
+    {
+        "label": "lower",
+        "importPath": "pyspark.sql.functions",
+        "description": "pyspark.sql.functions",
+        "isExtraImport": true,
+        "detail": "pyspark.sql.functions",
+        "documentation": {}
+    },
+    {
+        "label": "trim",
+        "importPath": "pyspark.sql.functions",
+        "description": "pyspark.sql.functions",
+        "isExtraImport": true,
+        "detail": "pyspark.sql.functions",
         "documentation": {}
     },
     {
@@ -102,6 +137,96 @@
         "description": "news_text",
         "peekOfCode": "def fetch_news_about_apple():\n    ####### Settings ---> Change Variable ######\n    search_keyword = 'apple stock'\n    start_date = \"2024-10-21\"\n    end_date = \"2024-10-22\" \n    sort_method = 'popularity'\n    api_key = \"fcf6368111ce48c3b234b0a479d1dca6\"\n    # url definition\n    url = (\n        \"https://newsapi.org/v2/everything?\"",
         "detail": "news_text",
+        "documentation": {}
+    },
+    {
+        "label": "spark",
+        "kind": 5,
+        "importPath": "tranform_pyspark",
+        "description": "tranform_pyspark",
+        "peekOfCode": "spark = SparkSession.builder.appName(\"TextSentimentAnalysis\").getOrCreate()\n# load the text file\nlog_file=\"news_data.json\"\n#log_data = spark.read.json(log_file).cache()\ndf = spark.read.option(\"multiline\", \"true\").json(log_file)\ndf.printSchema() \ndf.show(truncate=False) \n# Step 3: Check if 'articles' field exists\nif 'articles' in df.columns:\n    print(\"Step 3: 'articles' field exists in the DataFrame\")",
+        "detail": "tranform_pyspark",
+        "documentation": {}
+    },
+    {
+        "label": "#log_data",
+        "kind": 5,
+        "importPath": "tranform_pyspark",
+        "description": "tranform_pyspark",
+        "peekOfCode": "#log_data = spark.read.json(log_file).cache()\ndf = spark.read.option(\"multiline\", \"true\").json(log_file)\ndf.printSchema() \ndf.show(truncate=False) \n# Step 3: Check if 'articles' field exists\nif 'articles' in df.columns:\n    print(\"Step 3: 'articles' field exists in the DataFrame\")\n    # Step 4: Explode the 'articles' field to get individual articles\n    articles_df = df.select(explode(col(\"articles\")).alias(\"article\"))\n    print(\"Step 4: Exploded 'articles' field into individual rows\")",
+        "detail": "tranform_pyspark",
+        "documentation": {}
+    },
+    {
+        "label": "df",
+        "kind": 5,
+        "importPath": "tranform_pyspark",
+        "description": "tranform_pyspark",
+        "peekOfCode": "df = spark.read.option(\"multiline\", \"true\").json(log_file)\ndf.printSchema() \ndf.show(truncate=False) \n# Step 3: Check if 'articles' field exists\nif 'articles' in df.columns:\n    print(\"Step 3: 'articles' field exists in the DataFrame\")\n    # Step 4: Explode the 'articles' field to get individual articles\n    articles_df = df.select(explode(col(\"articles\")).alias(\"article\"))\n    print(\"Step 4: Exploded 'articles' field into individual rows\")\n    articles_df.printSchema()",
+        "detail": "tranform_pyspark",
+        "documentation": {}
+    },
+    {
+        "label": "#articles_df",
+        "kind": 5,
+        "importPath": "tranform_pyspark",
+        "description": "tranform_pyspark",
+        "peekOfCode": "#articles_df = log_data.select(explode(split(lower(trim(col(\"value\"))), \"\\\\W+\")).alias(\"word\"))\n# extract \n#log_data.show(truncate=False)\nbreakpoint\nspark.stop()",
+        "detail": "tranform_pyspark",
+        "documentation": {}
+    },
+    {
+        "label": "spark",
+        "kind": 5,
+        "importPath": "WordFrequency",
+        "description": "WordFrequency",
+        "peekOfCode": "spark = SparkSession.builder.appName(\"WordFrequency\").getOrCreate()\n# Load the text file\nlogFile = \"news_data.txt\"  \n# Read a text file and change into the Spark DataFrame\nlogData = spark.read.text(logFile).cache()\n# logData.show()\n# +--------------------+\n# |               value|\n# +--------------------+\n# |             HAMLET,|",
+        "detail": "WordFrequency",
+        "documentation": {}
+    },
+    {
+        "label": "logFile",
+        "kind": 5,
+        "importPath": "WordFrequency",
+        "description": "WordFrequency",
+        "peekOfCode": "logFile = \"news_data.txt\"  \n# Read a text file and change into the Spark DataFrame\nlogData = spark.read.text(logFile).cache()\n# logData.show()\n# +--------------------+\n# |               value|\n# +--------------------+\n# |             HAMLET,|\n# |  PRINCE OF DENMARK.|\n# |              ACT I.|",
+        "detail": "WordFrequency",
+        "documentation": {}
+    },
+    {
+        "label": "logData",
+        "kind": 5,
+        "importPath": "WordFrequency",
+        "description": "WordFrequency",
+        "peekOfCode": "logData = spark.read.text(logFile).cache()\n# logData.show()\n# +--------------------+\n# |               value|\n# +--------------------+\n# |             HAMLET,|\n# |  PRINCE OF DENMARK.|\n# |              ACT I.|\n# |Scene I.—ELSINORE...|\n# |Francisco on his ...|",
+        "detail": "WordFrequency",
+        "documentation": {}
+    },
+    {
+        "label": "wordsData_1",
+        "kind": 5,
+        "importPath": "WordFrequency",
+        "description": "WordFrequency",
+        "peekOfCode": "wordsData_1 = logData.select(explode(split(lower(trim(col(\"value\"))), \"\\\\W+\")).alias(\"word\"))\n# wordsData_1.show()\n# +---------+\n# |     word|\n# +---------+\n# |   hamlet|\n# |         |\n# |   prince|\n# |       of|\n# |  denmark|",
+        "detail": "WordFrequency",
+        "documentation": {}
+    },
+    {
+        "label": "wordsData_2",
+        "kind": 5,
+        "importPath": "WordFrequency",
+        "description": "WordFrequency",
+        "peekOfCode": "wordsData_2 = wordsData_1.filter(col(\"word\")!=\"\")\n# wordsData_2.show()\n# +---------+\n# |     word|\n# +---------+\n# |   hamlet|\n# |   prince|\n# |       of|\n# |  denmark|\n# |      act|",
+        "detail": "WordFrequency",
+        "documentation": {}
+    },
+    {
+        "label": "wordCounts",
+        "kind": 5,
+        "importPath": "WordFrequency",
+        "description": "WordFrequency",
+        "peekOfCode": "wordCounts = wordsData_2.groupBy('word').count().orderBy(col('count').desc())\n# Show the top 20 most frequent words\nwordCounts.show(20, truncate=False)\n# +----+-----+                                                                    \n# |word|count|\n# +----+-----+\n# |the |1208 |\n# |to  |769  |\n# |and |760  |\n# |i   |728  |",
+        "detail": "WordFrequency",
         "documentation": {}
     }
 ]
